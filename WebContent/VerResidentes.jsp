@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    <%@page import="entities.IngResidente" %>
+    <%@page import="services.IngResidenteDao" %>
+    <%@page import="java.util.List" %>
+    <%@page import="entities.Empleado" %>
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content=""/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+  <title>SoftBuild</title>
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css" media="all" />
+
+  <link rel="stylesheet" href="css/estilo.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+</head>
+  <body>
+    <!-- ##### Preloader ##### -->
+        <div class="preloader d-flex align-items-center justify-content-center">
+            <div class="circle-preloader">
+                <img src="img/logo.jpeg" alt=""/>
+            </div>
+        </div>
+
+     <!-- inicio nav -->
+          <nav class="navbar navbar-expand-lg navbar-light bg-warning">
+          <a class="navbar-brand" href="HomeAdministrador.jsp"> <img src="img/logo.png" width="120px"></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="DestruirSesionController" method="post">
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle my-2 my-sm-0" href="#" id="navbarDropdown" role="button"
+                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Administrador &nbsp <i class="fas fa-user-tie"></i>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <button class="dropdown-item" type="submit" >Cerrar Sesion</button>
+                </div>
+              </li>
+              </ul>
+          </form>
+          </div>
+        </nav>
+
+        <h3 align="center"> Informacion Ingenieros Residentes</h3>
+
+        <div class="container">
+          <div class="row" id="administrar">
+            <div class="col-12 col-sm-12 col-md-12">
+
+              <table class="table table-hover">
+                <thead class="thead-dark">
+                  <% IngResidenteDao ad=new IngResidenteDao();
+           			List <Empleado> empleados=ad.Residentes();
+           %>
+                <tr>
+                  <th>Nombre del residente</th>
+                  <th>Apellido</th>
+                  <th>Telefono</th>
+                  <th>Direccion</th>
+                  <th>Dni</th>
+                  <th>Estado</th>
+            </tr>
+                <tbody>
+                <% for(Empleado e:empleados){%>
+                  <tr>
+                    <td><%=e.getNombre() %></td>
+                    <td><%=e.getApellido() %></td>
+                    <td><%=e.getTelefono() %></td>
+                    <td><%=e.getDireccion() %></td>
+                    <td><%=e.getDni()%></td>
+                    <td><%= ad.Estado(e.getIdEmpleado()) %></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <%} %>
+                 </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- fin nav -->
+
+        <!-- ##### Footer Area Start ##### -->
+
+        <!-- ##### All Javascript Script ##### -->
+        <!-- jQuery-2.2.4 js -->
+         <script src="js/jquery/jquery-2.2.4.min.js"></script>
+        <!-- Popper js -->
+        <script src="js/bootstrap/popper.min.js"></script>
+        <!-- Bootstrap js -->
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <!-- All Plugins js -->
+        <script src="js/plugins/plugins.js"></script>
+        <!-- Active js -->
+        <script src="js/active.js"></script>
+        </body>
+</html>
