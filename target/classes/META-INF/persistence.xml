@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="SoftBuild" transaction-type="RESOURCE_LOCAL">
+	<provider>org.hibernate.ejb.HibernatePersistence</provider>
+	<class>entities.Almacen</class>
+	<class>entities.Almacenista</class>
+	<class>entities.Bodega</class>
+	<class>entities.ControlObjetoAlmacen</class>
+	<class>entities.Empleado</class>
+	<class>entities.Equipo</class>
+	<class>entities.Herramienta</class>
+	<class>entities.IngResidente</class>
+	<class>entities.Material</class>
+	<class>entities.Objeto</class>
+	<class>entities.ObjetoAlmacen</class>
+	<class>entities.ObjetoAlmacenPrestamo</class>
+	<class>entities.ObjetoBodega</class>
+	<class>entities.ObjetoBodegaPrestamo</class>
+	<class>entities.Obra</class>
+	<class>entities.Prestamo</class>
+	<class>entities.Administrador</class>
+		<properties>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/basededatosobras"/>
+			<property name="javax.persistence.jdbc.user" value="root"/>
+			<property name="javax.persistence.jdbc.password" value="chocoso06"/>
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MariaDB53Dialect"/> <!-- DB Dialect -->
+			<property name="hibernate.show_sql" value="true" /> <!-- Show SQL in console -->
+            <property name="hibernate.format_sql" value="true" />
+			<property name="javax.persistence.schema-generation.database.action" value="none"/>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> 
+		</properties>
+	</persistence-unit>
+</persistence>
